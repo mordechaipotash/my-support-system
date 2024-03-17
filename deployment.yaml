@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-support-system
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-support-system
+  template:
+    metadata:
+      labels:
+        app: my-support-system
+    spec:
+      containers:
+      - name: my-support-system
+        image: gcr.io/sparks-417421/my-support-system
+        ports:
+        - containerPort: 8080
